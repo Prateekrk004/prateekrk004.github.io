@@ -1,0 +1,6 @@
+{
+  "name": "Luxe Meats Concierge",
+  "description": "Ultra-Premium Luxury Meats Boutique, Bespoke Table Reservations with Live Seat Maps, and an AI Sommelier & Butler concierge.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

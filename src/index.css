@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  /* Luxury Elite Color Accents */
+  --color-gold-50: #fbf7ec;
+  --color-gold-100: #f4ebd1;
+  --color-gold-200: #e7d4a0;
+  --color-gold-300: #d6b86f;
+  --color-gold-400: #c69d47;
+  --color-gold-500: #b4842e; /* Signature Gold */
+  --color-gold-600: #986923;
+  --color-gold-700: #7a4f1c;
+  --color-gold-800: #5f3b17;
+  --color-gold-900: #42250f;
+  --color-gold-950: #291406;
+}
+
+/* Base style resets and luxury backdrop smoothings */
+body {
+  font-family: var(--font-sans);
+  background-color: #0c0a09; /* Stone-950 */
+  color: #f5f5f4; /* Stone-100 */
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0a09;
+}
+::-webkit-scrollbar-thumb {
+  background: #292524;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b4842e;
+}
+

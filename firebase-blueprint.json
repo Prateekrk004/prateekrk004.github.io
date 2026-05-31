@@ -1,0 +1,133 @@
+{
+  "entities": {
+    "userProfile": {
+      "title": "UserProfile",
+      "description": "Premium customer contact details and VIP membership status.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the private dining client."
+        },
+        "email": {
+          "type": "string",
+          "description": "Verified secure email address."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Secure phone credentials."
+        },
+        "isBlackCard": {
+          "type": "boolean",
+          "description": "Black card status flag for bespoke perks."
+        }
+      },
+      "required": ["name", "email", "phone", "isBlackCard"]
+    },
+    "order": {
+      "title": "Order",
+      "description": "Bespoke fine cut purchase order details.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "description": "List of dishes and premium wagyu selections."
+        },
+        "subtotal": {
+          "type": "number"
+        },
+        "tax": {
+          "type": "number"
+        },
+        "deliveryFee": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        },
+        "date": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["Shipped", "Delivered", "Pending"]
+        }
+      },
+      "required": ["id", "items", "subtotal", "tax", "deliveryFee", "total", "date", "status"]
+    },
+    "savedLocation": {
+      "title": "SavedLocation",
+      "description": "Dispatch location coordinates for secure delivery.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string",
+          "description": "Label of the residence, e.g. OFFICE, PRIMARY RESIDENCE."
+        },
+        "address": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "instructions": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "label", "address", "city", "postalCode"]
+    },
+    "reservation": {
+      "title": "Reservation",
+      "description": "Live fireplace and table map bookings.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "partySize": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        },
+        "specialRequests": {
+          "type": "string"
+        },
+        "confirmedAt": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "partySize", "date", "time", "confirmedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "userProfile",
+      "description": "Primary user profile storage indexed by User Auth UID."
+    },
+    "/users/{userId}/orders/{orderId}": {
+      "schema": "order",
+      "description": "Subcollection of historic bespoke meat deliveries."
+    },
+    "/users/{userId}/locations/{locationId}": {
+      "schema": "savedLocation",
+      "description": "Subcollection of delivery coordinates and gate codes."
+    },
+    "/users/{userId}/reservations/{reservationId}": {
+      "schema": "reservation",
+      "description": "Subcollection of private table layout reservations."
+    }
+  }
+}
