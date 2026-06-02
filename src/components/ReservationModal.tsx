@@ -45,7 +45,8 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
     if (!selectedTable) return;
     setSommelierLoading(true);
     try {
-      const response = await fetch('/api/reservations/sommelier', {
+      const baseUrl = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${baseUrl}/api/reservations/sommelier`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
